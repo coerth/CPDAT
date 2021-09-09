@@ -8,7 +8,7 @@ boolean yellowLight = false;
 boolean greenLight = false;
 
 void setup() {
-  frameRate(10);
+  frameRate(5);
   size(500, 500);
   rectMode(CENTER);
   rect(250, 250, 250, 400);
@@ -34,7 +34,6 @@ void draw() {
   }
   circle(250, 370, 100);
 
-  while (counter <= 100) {
     if (counter <= 40) {
       redLight = true;
       yellowLight = false;
@@ -54,5 +53,7 @@ void draw() {
     }
     println(counter);
     counter++;
-  }
+    if(counter == 100){
+    noLoop();
+    }
 }
