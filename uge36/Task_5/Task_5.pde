@@ -46,15 +46,26 @@ void MethodTwo()
   }
 
   // Print the name of the weekday here:
-  if (weekDay == 1)
+  if (weekDay == 0)
     println("It's Monday... YAWN!");
-  else if (weekDay == 2)
+  else if (weekDay == 1)
     println("Today its Tuesday..");
-  else if (weekDay == 3)
+  else if (weekDay == 2)
     println("It's Wednsday mah dudes!");
+  else if (weekDay == 3)
+    println("Its almost weekend because its Thursday");
   else if (weekDay == 4)
-    println("
-
-
+    println("ITS FRIDAY!!!!!");
+  else if (weekDay == 5)
+    println("Saturday");
+  else if (weekDay == 6)
+    println("Sunday");
+  else
+    println("dage eksistere ikke.");
     // Print if it is weekend here:
+    
+  if(weekend == true)
+    println("it's weekend!");
+  else
+    println("its not weekend:(");
   }
