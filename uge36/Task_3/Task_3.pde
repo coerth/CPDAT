@@ -11,18 +11,23 @@ void setup() {
   rectMode(CENTER);
   fill(0);
   rect(250, 250, 250, 400);
-}
-
-void draw() {
   fill(off);
   circle(250, 130, 100);
   circle(250, 250, 100);
   circle(250, 370, 100);
+}
+
+void draw() {
+  /*fill(off);
+  circle(250, 130, 100);
+  circle(250, 250, 100);
+  circle(250, 370, 100);*/
   
   if(counter == 4){
     counter = 1;
   } else{
     counter++;
+    delay(1500);
   }
   
   switch(counter){
