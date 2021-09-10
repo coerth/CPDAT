@@ -26,17 +26,9 @@ void MethodOne()
  */
 void MethodTwo()
 {
-  int weekDay = 0; // 0 = Monday, 6 = Sunday.
+  int weekDay = (int)random(0, 7); // 0 = Monday, 6 = Sunday.
   boolean weekend = false;
-  if (keyPressed) {
-    if (key == 'a') {
-      if (weekDay >= 6) {
-        weekDay = 0;
-      } else {
-        weekDay++;
-      }
-    }
-  }
+  println(weekDay);
   if (weekDay < 5)
   {
     weekend = false;
