@@ -3,7 +3,6 @@ color yellow = #ffff00;
 color green = #00ff00;
 color off = #808080;
 int counter = 0;
-boolean goUp = false;
 
 
 void setup() {
@@ -20,7 +19,7 @@ void draw() {
   circle(250, 250, 100);
   circle(250, 370, 100);
   
-  if(counter == 3){
+  if(counter == 4){
     counter = 1;
   } else{
     counter++;
@@ -40,6 +39,10 @@ void draw() {
     case 3:
       fill(green);
       circle(250, 370, 100);
+      break;
+    case 4:
+      fill(yellow);
+      circle(250, 250, 100);
       break;
   }
   println(counter);
