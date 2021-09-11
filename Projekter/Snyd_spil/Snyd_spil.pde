@@ -1,7 +1,7 @@
 int players = 4;
 int[] diceRolls = new int[6];
-int num = 2;
-int guess = 7;
+int num = 6;
+int guess = 5;
 int countGuess = 0;
 
 void setup() {
@@ -14,6 +14,9 @@ void keyPressed() {
   if (key == 'a') {
     roll();
   }
+}
+
+void loseDice(){
 }
 
 void roll() {
