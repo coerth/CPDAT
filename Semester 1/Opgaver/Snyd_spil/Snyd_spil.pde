@@ -39,3 +39,8 @@ void roll() {
   else
     println("Du vandt!");
 }
+
+class Player{
+
+
+}
