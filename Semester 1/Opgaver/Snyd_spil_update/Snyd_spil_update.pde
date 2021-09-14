@@ -1,13 +1,27 @@
 Player[] players = new Player[4];
+int guess = 3;
+int num = 5;
+int countGuess = 0;
 
 
 void setup() {
   for (int i = 0; i<players.length; i++) {
     players[i] = new Player((i+1));
-    print(players[i].name);
+    print(players[i].name + ": ");
+    for(int j = 0; j<players[i].dices.length; j++){
+    print(players[i].dices[j] + " ");
+    if(players[i].dices[j] == num){
+    countGuess++;
+    }
+    }
     println();
     println();
   }
+  println(countGuess);
+    if(countGuess < guess)
+    println("du tabte..");
+    else
+    println("Tillykke!");
   /*print(player.name);
    println(player.dices);*/
 }
@@ -17,16 +31,6 @@ void draw() {
 
 void keyPressed() {
   if (key == 'a') {
-    players[0].roll();
-    println();
-    println();
-    players[1].roll();
-    println();
-    println();
-    players[2].roll();
-    println();
-    println();
-    players[3].roll();
   }
 }
 
@@ -42,9 +46,6 @@ public class Player {
   }
 
   void roll() {
-    for (int i = 0; i < dices.length; i++) {
-      print(dices[i] + " ");
-    }
   }
 
   void loseDice() {
