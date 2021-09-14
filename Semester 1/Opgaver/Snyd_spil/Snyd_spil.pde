@@ -19,9 +19,6 @@ void keyPressed() {
   }
 }
 
-void loseDice() {
-}
-
 void roll() {
   for (int i = 0; i<players; i++) {
     print("player" + (i+1) + ": ");
@@ -44,4 +41,11 @@ void roll() {
 }
 
 class Player {
+  int[] dices = new int[6];
+  
+  void roll(){
+  }
+
+  void loseDice() {
+  }
 }
