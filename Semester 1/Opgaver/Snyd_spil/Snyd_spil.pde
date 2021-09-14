@@ -14,9 +14,12 @@ void keyPressed() {
   if (key == 'a') {
     roll();
   }
+  if (key == 'b') {
+    countGuess = 0;
+  }
 }
 
-void loseDice(){
+void loseDice() {
 }
 
 void roll() {
@@ -40,7 +43,5 @@ void roll() {
     println("Du vandt!");
 }
 
-class Player{
-
-
+class Player {
 }
