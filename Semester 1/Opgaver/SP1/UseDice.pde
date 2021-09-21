@@ -5,6 +5,7 @@ void setup() {
 }
 
 void draw() {
+  background(255);
   for(int i = 0; i<DiceCupArray.length; i++){
   if (DiceCupArray[i] != null)
     DC.Draw();
@@ -29,5 +30,6 @@ void keyPressed() {
   }
   
   if (key == 'c'){
+    DC.Remove();
   }
 }
