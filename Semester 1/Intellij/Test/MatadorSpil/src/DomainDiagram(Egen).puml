@@ -1,0 +1,26 @@
+@startuml
+Board o-- Player : HAS-A
+Board o-- Field
+Board o-- HappyCard
+Board o-- Dice
+Board o-- Bank
+Board o-- Piece
+Player o-- Piece
+Player o-- Account
+Account o-- Deeds
+Field <|-- Start
+Field <|-- Parking
+Field <|-- Property
+Field <|-- Prison
+Field <|-- Chance
+Field <|-- Tax
+Field <|-- Visit
+Property <|-- Plot
+Business <|-- Brewery
+Business <|-- Shipping
+Property <|-- Business
+Plot o-- Building
+Building <|-- House
+Building <|-- Hotel
+Property o-- Deeds
+@enduml

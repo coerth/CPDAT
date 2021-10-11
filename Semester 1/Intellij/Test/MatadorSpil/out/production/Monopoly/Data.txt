@@ -1,0 +1,4 @@
+Benny : 30000.0
+Egon : 3000.0
+Kjeld : 20.0
+Casper : 2000.0

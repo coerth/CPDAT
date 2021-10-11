@@ -1,0 +1,31 @@
+@startuml
+
+actor user as u
+
+  usecase "StartGame" as UCA1
+  usecase "RegisterPlayers" as UCA2
+  usecase "SaveGame" as UCA3
+
+  usecase "TakeTurn" as UC1
+  usecase "LandOnField" as UC2
+  usecase "LandOnProperty" as UC4
+  usecase "LandOnConsequence" as UC5
+  usecase "HandleMoney" as UC6
+ usecase "QuitGame" as UC7
+ usecase "MakeChoice" as UC8
+
+u --> (UCA1)
+(UCA1) --> (UCA2) : if no data
+(UCA2) --> (UC1) : proceeds
+(UCA1) --> (UC1) : proceeds
+(UC1) --> (UC2)
+(UC2) --> (UC4)
+(UC2) --> (UC5)
+(UC4) --> (UC8)
+(UC5) --> (UC8)
+(UC8) --> (UC6)
+(UC6) --> (UC1)
+(UC1) --> (UC7)
+(UC7) --> (UCA3)
+(UC7) --> (UCA1)
+@enduml
