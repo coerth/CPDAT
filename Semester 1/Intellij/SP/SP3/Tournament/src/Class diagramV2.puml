@@ -27,7 +27,7 @@ Tournament : - ArrayList<Team> teams
 Tournament : - String startDate
 Tournament : - boolean isFixedDuration
 Tournament : + void readTeamsFromFile()
-Tournament : + void saveTeamsToFile()
+Tournament : + void createTeam()
 
 KnockOutTournament : - Bracket bracket
 KnockOutTournament : + Bracket createBracket()
@@ -67,6 +67,7 @@ Team : - String name
 Team : - ArrayList<Player> players
 Team : - MatchHistory matchHistory
 Team : - int goalScore
+Team : - int points
 Team : + void addPlayer()
 Team : + void removePlayer()
 Team : + void joinTournament()
@@ -76,5 +77,4 @@ Team : + @Override String toString()
 Player : - String name
 Player : - int age
 Player : - char gender
-Player : + void createTeam()
 @enduml
