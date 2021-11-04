@@ -5,8 +5,10 @@ public class Main {
         controller.createTournament("WorldCupFuusball", "01/01/2022", false);
         controller.loadTeamsToTournament("WorldCupFuusball");
         controller.postTeamsFromTournament("WorldCupFuusball");
-        controller.getTournament("WorldCupFuusball").createTeam();
+        //controller.getTournament("WorldCupFuusball").createTeam();
+        KnockOutTournament d = (KnockOutTournament) controller.getTournament("WorldCupFuusball");
+        Bracket bracket = d.createBracket();
+        bracket.processBracket();
 
-        //tournaments.add(new KnockOutTournament("Premier League", "02/02/2022", false));
     }
 }

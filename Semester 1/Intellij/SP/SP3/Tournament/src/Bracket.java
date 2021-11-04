@@ -2,102 +2,100 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bracket {
-    private ArrayList<Arrays> playOffs = new ArrayList<>();
     private Match[] finals = new Match[1];
     private Match[] semiFinal = new Match[2];
     private Match[] quarterFinal = new Match[4];
     private Match[] preliminaryFinal = new Match[8];
 
-    public void processPlayOffs(){
+    public void processBracket(){
         processPreliminaryFinal();
         processQuarterFinal();
         processSemiFinal();
         processFinal();
     }
 
-    public void processFinal(){
+    public Team processFinal(){
         Team tournamentWinner;
         tournamentWinner = finals[0].processMatch();
 
+        return tournamentWinner;
     }
 
     public void processSemiFinal(){
-        Team teamWinnerA;
-        Team teamWinnerB;
+        Team[] teams = new Team[2];
+        int i = 0;
 
-        teamWinnerA = semiFinal[0].processMatch();
-        teamWinnerB = semiFinal[1].processMatch();
+        for(Match match : semiFinal){
+            teams[i] = match.processMatch();
+            i++;
+        }
 
-        createFinal(teamWinnerA, teamWinnerB);
+        createFinal(teams);
     }
 
     public void processQuarterFinal(){
-        Team teamWinnerA;
-        Team teamWinnerB;
-        Team teamWinnerC;
-        Team teamWinnerD;
+        Team[] teams = new Team[4];
+        int i = 0;
 
-        teamWinnerA = quarterFinal[0].processMatch();
-        teamWinnerB = quarterFinal[1].processMatch();
-        teamWinnerC = quarterFinal[2].processMatch();
-        teamWinnerD = quarterFinal[3].processMatch();
+        for(Match match : quarterFinal){
+            teams[i] = match.processMatch();
+            i++;
+        }
 
-        createSemiFinal(teamWinnerA, teamWinnerB, teamWinnerC, teamWinnerD);
+        createSemiFinal(teams);
     }
 
 
     public void processPreliminaryFinal(){
-        Team teamWinnerA;
-        Team teamWinnerB;
-        Team teamWinnerC;
-        Team teamWinnerD;
-        Team teamWinnerE;
-        Team teamWinnerF;
-        Team teamWinnerG;
-        Team teamWinnerH;
+        Team[] teams = new Team[8];
+        int i = 0;
+        for(Match match : preliminaryFinal){
+            teams[i] = match.processMatch();
+            i++;
+        }
 
-        teamWinnerA = preliminaryFinal[0].processMatch();
-        teamWinnerB = preliminaryFinal[1].processMatch();
-        teamWinnerC = preliminaryFinal[2].processMatch();
-        teamWinnerD = preliminaryFinal[3].processMatch();
-        teamWinnerE = preliminaryFinal[0].processMatch();
-        teamWinnerF = preliminaryFinal[1].processMatch();
-        teamWinnerG = preliminaryFinal[2].processMatch();
-        teamWinnerH = preliminaryFinal[3].processMatch();
-
-        createQuarterFinal(teamWinnerA, teamWinnerB, teamWinnerC, teamWinnerD,teamWinnerE, teamWinnerF, teamWinnerG, teamWinnerH);
+        createQuarterFinal(teams);
     }
 
 
 
-    public void createFinal(Team teamA, Team teamB){
-        finals[0] = new Match(teamA, teamB);
+    public void createFinal(Team[] teams){
+        finals[0] = new Match(teams[0], teams[1]);
     }
 
-    public void createSemiFinal(Team teamA, Team teamB, Team teamC, Team teamD) {
-    semiFinal[0] = new Match(teamA, teamB);
-    semiFinal[1] = new Match(teamC, teamD);
+    public void createSemiFinal(Team[] teams) {
+        int i = 0;
+        int j = 1;
+
+        for(int k = 0; k<semiFinal.length; k++){
+            semiFinal[k] = new Match(teams[i], teams[j]);
+            i += 2;
+            j += 2;
+        }
     }
 
-    public void createQuarterFinal(Team teamA, Team teamB, Team teamC, Team teamD, Team teamE, Team teamF, Team teamG, Team teamH) {
-        quarterFinal[0] = new Match(teamA, teamB);
-        quarterFinal[1] = new Match(teamC, teamD);
-        quarterFinal[2] = new Match(teamE, teamF);
-        quarterFinal[3] = new Match(teamG, teamH);
+    public void createQuarterFinal(Team[] teams) {
+        int i = 0;
+        int j = 1;
+
+        for(int k = 0; k<quarterFinal.length; k++){
+            quarterFinal[k] = new Match(teams[i], teams[j]);
+            i += 2;
+            j += 2;
+        }
     }
 
-    public void createPreliminaryFinal(Team teamA, Team teamB, Team teamC, Team teamD, Team teamE, Team teamF, Team teamG, Team teamH,
-                                       Team teamI, Team teamJ, Team teamK, Team teamL, Team teamM, Team teamN, Team teamO, Team teamP) {
+    public void createPreliminaryFinal(ArrayList<Team> teams) {
+        int i = 0;
+        int j = 1;
 
-        preliminaryFinal[0] = new Match(teamA, teamB);
-        preliminaryFinal[1] = new Match(teamC, teamD);
-        preliminaryFinal[2] = new Match(teamE, teamF);
-        preliminaryFinal[3] = new Match(teamG, teamH);
-        preliminaryFinal[4] = new Match(teamI, teamJ);
-        preliminaryFinal[5] = new Match(teamK, teamL);
-        preliminaryFinal[6] = new Match(teamM, teamN);
-        preliminaryFinal[7] = new Match(teamO, teamP);
+        for(int k = 0; k<preliminaryFinal.length; k++){
+            preliminaryFinal[k] = new Match(teams.get(i), teams.get(j));
+            i += 2;
+            j += 2;
+        }
     }
+
 
     public Match[] getFinals() {
         return finals;
@@ -114,4 +112,6 @@ public class Bracket {
     public Match[] getPreliminaryFinal() {
         return preliminaryFinal;
     }
+
+
 }

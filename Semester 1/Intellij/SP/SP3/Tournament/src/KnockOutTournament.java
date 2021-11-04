@@ -14,7 +14,7 @@ public class KnockOutTournament extends Tournament {
             excessBracket();
 */
         Bracket bracket = new Bracket();
-        //bracket.createPreliminaryFinal(); fjern comment i morgen
+        bracket.createPreliminaryFinal(super.getTeams());
         
         return bracket;
     }
