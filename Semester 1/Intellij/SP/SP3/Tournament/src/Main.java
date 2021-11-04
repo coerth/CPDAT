@@ -7,8 +7,8 @@ public class Main {
         controller.postTeamsFromTournament("WorldCupFuusball");
         //controller.getTournament("WorldCupFuusball").createTeam();
         KnockOutTournament d = (KnockOutTournament) controller.getTournament("WorldCupFuusball");
-        Bracket bracket = d.createBracket();
-        bracket.processBracket();
+        d.createBracket();
+        d.runBracket();
 
     }
 }

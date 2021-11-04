@@ -1,22 +1,28 @@
 import java.util.ArrayList;
 
 public class KnockOutTournament extends Tournament {
-    private Bracket bracket;
+    private Bracket bracket = new Bracket();
 
     public KnockOutTournament(String name, String startDate, boolean isFixedDuration) {
         super(name, startDate, isFixedDuration);
     }
 
-    public Bracket createBracket() {
+    public void createBracket() {
         /*int teamExcess;
         teamExcess = super.getTeams().size() % 16;
         if(teamExcess > 0)
             excessBracket();
 */
-        Bracket bracket = new Bracket();
         bracket.createPreliminaryFinal(super.getTeams());
-        
-        return bracket;
+
+    }
+
+    public void runPreliminaryFinal(){
+        bracket.processPreliminaryFinal();
+    }
+
+    public void runBracket(){
+        bracket.processBracket();
     }
 
     /*public Team excessBracket(){

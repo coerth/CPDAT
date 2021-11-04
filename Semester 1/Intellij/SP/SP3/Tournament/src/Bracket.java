@@ -48,10 +48,8 @@ public class Bracket {
 
     public void processPreliminaryFinal(){
         Team[] teams = new Team[8];
-        int i = 0;
-        for(Match match : preliminaryFinal){
-            teams[i] = match.processMatch();
-            i++;
+        for(int i = 0; i < preliminaryFinal.length ; i++){
+            teams[i] = preliminaryFinal[i].processMatch();
         }
 
         createQuarterFinal(teams);
